@@ -50,6 +50,7 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
                         LocalDateTime.parse(update.message().text().substring(0, 16), DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm"))
                 );
                 notificationTaskService.saveNotification(task);
+
                 logger.info("Информация сохранена");
                 SendMessage message = new SendMessage(update.message().chat().id(), "Памятка создана");
                 telegramBot.execute(message);

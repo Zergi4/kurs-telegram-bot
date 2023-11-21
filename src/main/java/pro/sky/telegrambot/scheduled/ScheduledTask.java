@@ -19,6 +19,7 @@ public class ScheduledTask {
 
     @Scheduled(cron = "0 0/1 * * * *")
     private void notification() {
+        //создаем список подходящих напоминаний
         Collection<NotificationTask> list = notificationTaskService.getCurrentNotification();
         list.forEach(task -> {
             SendMessage message = new SendMessage(task.getChatId(), "НАПОМИНАНИЕ: " + task.getText());
