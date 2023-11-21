@@ -21,7 +21,7 @@ import java.util.regex.Pattern;
 @Service
 public class TelegramBotUpdatesListener implements UpdatesListener {
 
-    private Logger logger = LoggerFactory.getLogger(TelegramBotUpdatesListener.class);
+    final private Logger logger = LoggerFactory.getLogger(TelegramBotUpdatesListener.class);
     @Autowired
     private TelegramBot telegramBot;
     @Autowired
@@ -50,6 +50,7 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
                         LocalDateTime.parse(update.message().text().substring(0, 16), DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm"))
                 );
                 notificationTaskService.saveNotification(task);
+
                 logger.info("Информация сохранена");
                 SendMessage message = new SendMessage(update.message().chat().id(), "Памятка создана");
                 telegramBot.execute(message);

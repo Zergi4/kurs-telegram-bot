@@ -18,6 +18,8 @@ public class NotificationTaskService {
     }
 
     public Collection<NotificationTask> getCurrentNotification(){
+        // LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES) отображает текущее время только
+        // точностью до минут
         return notificationTaskRepository.findAllByDate(LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES));
     }
 }
