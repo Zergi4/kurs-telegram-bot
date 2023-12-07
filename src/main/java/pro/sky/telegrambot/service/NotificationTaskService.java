@@ -16,6 +16,7 @@ public class NotificationTaskService {
     private NotificationTaskRepository notificationTaskRepository;
     public void saveNotification(NotificationTask task){
         notificationTaskRepository.save(task);
+
     }
 
     public Collection<NotificationTask> getCurrentNotification(){
