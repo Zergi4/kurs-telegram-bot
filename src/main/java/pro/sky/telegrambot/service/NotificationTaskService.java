@@ -10,6 +10,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.Collection;
 
 @Service
+
 public class NotificationTaskService {
     @Autowired
     private NotificationTaskRepository notificationTaskRepository;
